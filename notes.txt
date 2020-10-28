@@ -1,0 +1,10 @@
+Introduction.
+REquest:
+	METHOD -get,post,put,patch,delete,options,head
+	URI-
+	get : https://site.com/wp-json/wp/v2/posts:
+			metadata - host , content-type, authorisation,cache-control
+			new post - send post request.
+		get options - > to find resources and methods.
+		options request
+	resource and representation:x
