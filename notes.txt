@@ -1,5 +1,5 @@
 Introduction.
-REquest:
+Request:
 	METHOD -get,post,put,patch,delete,options,head
 	URI-
 	get : https://site.com/wp-json/wp/v2/posts:
@@ -7,4 +7,58 @@ REquest:
 			new post - send post request.
 		get options - > to find resources and methods.
 		options request
-	resource and representation:x
+	resource and representation:
+		any information whihc can be named is a resource.
+		conceptual mapping 
+		Rest components perform actions on resources to get to know the state.
+			get the resource in different representations -- like same resource in json/html/ etc -- representation.
+		http methods - verbs.
+		reload,forward,back, visit - get http functions.
+		GET -- 200 OK or 404 not found.
+		send data from client to server - POST, PUT and PATCH.
+		POST to create /add new data into collection-- 201 Created or 401 unauthorised, 409 conflict,404 not found.
+		PUT -- update and existing singleton resource based on ID.It can create new resource if not exist.
+			200 OK or 401 unauthorised, 404 not found,405 method not allowed.
+		PATCH -- modify existing resourcecs based on ID.- can carry out modifying resources.
+			200 OK or 401 unauthorised, 404 not found,405 method not allowed.
+		DELETE -- delete only singleton resource based on ID.
+			200 OK or 401 unauthorised, 404 not found
+		OPTIONS -- get the options available from resources.
+			200 OK.
+		HEAD -- get just the head section from the resource.
+			200 OK or 404 not found.	
+Response:
+	Response header:
+	all header details are given as o/p.
+	HTTP Status messages.
+		Response codes:
+		1xx -- Information - rarely seen
+		2xx -- Success 
+			200 - OK
+			201 - sucess and new data got craeted in a collection.
+			204 - No content.- server processed reuqest but returend no content.
+		3xx -- Redirection
+			301 -- moved permanently
+			302/303 -- Found at this other URL
+			307 -- Remporary redirect
+			308 -- Resume incomplete - permanent redirect.
+		4xx -- Clent err
+			400 -- Bad request
+			401 -- Unauthorised
+			403 -- Forbidden
+			404 -- Not found
+			405 -- method not allowed -- gets when u use post for get methods.
+		5xx -- Server err
+			500 -- Internal server err
+			502 -- Bad gateway - invalid response
+			503 -- Service unavailable - when server is unavailable / overloaded.
+			https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+	Rest and Authentication/Authorization:
+		need to pass Authorisation along with header only
+		
+Request/Response pairs:
+	 1st step is discovery - use OPTIONS
+	 
+		
+		
+	
