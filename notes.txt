@@ -42,7 +42,7 @@ Response:
 			302/303 -- Found at this other URL
 			307 -- Remporary redirect
 			308 -- Resume incomplete - permanent redirect.
-		4xx -- Clent err
+		4xx -- Client err
 			400 -- Bad request
 			401 -- Unauthorised
 			403 -- Forbidden
@@ -57,7 +57,13 @@ Response:
 		need to pass Authorisation along with header only
 		
 Request/Response pairs:
-	 1st step is discovery - use OPTIONS
+	 1st step is discovery - use OPTIONS gives all options present.
+	GET request.
+	POST request.
+	PUT/PATCH request.
+	DELETE request. - remove a resources.--forcec deletion is also possible.(force=true)
+
+
 	 
 		
 		

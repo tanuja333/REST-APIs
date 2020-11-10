@@ -1,4 +1,12 @@
-#GET https://reqres.in/api/users
+#GET  https://reqres.in/api/users?per_page=2
 
+POST  https://reqres.in/api/users
+Authorization: Basic user pass
+Content-Type: application/json
+{
+    "name": "tt",
+    "job": "leader"
 
-#options http://restful.dev/wp-json/wp/v2/posts
+}
+
+#head http://restful.dev/wp-json/wp/v2/posts
