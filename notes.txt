@@ -36,17 +36,18 @@ Response:
 		2xx -- Success 
 			200 - OK
 			201 - sucess and new data got craeted in a collection.
+			202 - Accepted.
 			204 - No content.- server processed reuqest but returend no content.
 		3xx -- Redirection
 			301 -- moved permanently
-			302/303 -- Found at this other URL
-			307 -- Remporary redirect
+			302/303 -- Found at this other URL-- moved temporarly.
+			307 -- Temporary redirect
 			308 -- Resume incomplete - permanent redirect.
 		4xx -- Client err
 			400 -- Bad request
-			401 -- Unauthorised
-			403 -- Forbidden
-			404 -- Not found
+			401 -- Unauthorised-- Authentication is required.
+			403 -- Forbidden-- incorrect permission.
+			404 -- Not found-- doesn't exist.
 			405 -- method not allowed -- gets when u use post for get methods.
 		5xx -- Server err
 			500 -- Internal server err
@@ -62,6 +63,311 @@ Request/Response pairs:
 	POST request.
 	PUT/PATCH request.
 	DELETE request. - remove a resources.--forcec deletion is also possible.(force=true)
+======================================================================================================================================
+HTTP ESSENTIAL TRAINING:
+	1.HTTP-hypertext transfer protocol:
+		protocol - definitions/rules to transfer data back and forth.
+		hypertext- hyper links 
+		- plain language and human readable.
+			GET,POST,PUT,DELETE,CONNECT,HEAD.
+		- Stateless protocol.
+			http has no memory of previous request.
+		- Sessions.
+			stored states shared between server and browser.
+			use cookies to send back and froth the state whcih user was in earlier.
+		- HTTP Headers.
+			what type od client sent the request.
+			server configuration.
+			time and date of response.
+			duration od storage.
+			data format.
+			cookies used to track cookies.
+		- Request/Response pairs.
+		HTTPs and HTTP2:
+			http2 - relatively new.
+			http - fallback protocol.
+			difference:
+			1. http2 - secure and faster - uses compresion algm , allows multiplexing , requires encrypted connections between server and browser -HTTPs.
+			2. http1.1 - uncompressed headers, tranfers one fle at a time, no default encryption.	
+		Terminology:
+			Browser - appn used to access and navigate b/w HTML docs.
+			user - agent - acting behalf of teh user - browser but not limited to browser.
+			TCP - transfer control protocol, main internet protocols used by WWW,email , FTP and remote administartion.
+			IP - internet protocol , used to transfer data b/w computers over a network 
+			URL - Uniform resorce locator - address pointing at resource on to a web.
+			DNS - domain name server - catalogs all domain name URLs and points them to IP addresses of servers.
+			Resource - files availale on server.
+			Server - computer in internet- share information-data storage.
+			Proxy - It is a softwarer /hardware service acting as a midle person b/w clients and servers. - used when server IP needs to be hiden / firewall n/w problem.
+			Request-Response Pairs - request sent and response returend.- communication over HTTP.
+			Headers - HTTP headers to pass information.
+			HTTP request Method - GET, PUT,POST.
+			Server Response code - response from server.
+			Cache - method of storing data on the client or server to speed up performance/transfers.
+			cookies - small information - to maitain states.
+			Sessions- clients and servers can sahre information about states by passing information back and forth, creating a session.
+		HTTP flow:
+			TCP connection.
+			request methods.
+			response after performing actions.
+			TCP connection will be closed.
+
+			multiplexing and server push: multiple connections through single sessions.
+		Tools to see http actions.
+			1. inspect Tools.
+			2. Postman.
+			3. insomnia.rest
+			4. visual studio rest client extension.
+	2. Request and Response pairs
+		-a request will have response.
+		Anatomy of a URL:
+			Universal Resource Locator.
+				ex..https://linkedin.learning. --> URN+HTTP protocol.
+				URN - hostname+connection port(80http/443-https)+resource path(index.htm/default.htm..etc.,)
+			optional URL query --> added at end ..eg: ?id=2
+		HTTP methods:
+			-same notes as mentioned above(head,options,trace,put,post,get,delete,patch)
+	3. HTTP headers
+		- human readable.
+		- Authorisation basic - usr/pass -- base64 encoded.
+			caching files should be done on browsers.- header chaching.
+		- Host 
+		- Content-Type:
+		- connection: keep-alive
+		How to see HTTP headers ? dveloper tools.
+		REST - reprsentational sate tranfers.
+		Anatomy of request headers:
+			Method - URL.
+			Host:
+			User-Agent - web browser.
+			Accept- language:
+			Accept- encoding:
+			Referer:
+			Connection:
+			Cache-control:
+			the above are some options of http request header.
+		Anatomy of response header.
+			server : hosted 
+			date / time:
+			content-type:
+		cookies:
+			server is the one which gives cookies to the web browsers.
+			browsers stores cookies.
+			cookie will be inclused in header as well.
+		Caching:
+			Stores scripts / data on browser instead of asking servers.
+			Caching can be utilised using Cache Request Directives and Cache response Directives.
+			Cache Request Directives:
+				Cache-control:
+					max-age=<seconds>
+					max-state[=<sec>]
+					min-fresh=<sec>
+					no-cache
+					no-store
+					no-transform
+					only-if-cached
+			Cache Response Directives:
+				Cache-control:
+				must-revalidate:
+				no-cache
+				no-store
+				no-transform
+				public
+				private
+				proxy-revalidate
+				max-age=<sec>
+				s-maxage=<sec>
+			max-age-- store files for these many seconds.
+				Cache-Control:max-age:31536000
+			we can't cache certain files as well
+======================================================================================================================================
+DESIGNING RESTFUL APIs
+	API design:
+		Decide on functionality to expose
+		decide how to expose It
+		decide best ways to expose it.
+		Test and validate assumptions
+		Repeat.
+		challenges:
+			naming , interacte and evolve of goals of API.
+	
+	AFFORDANCES: something which allows you to perform an action or accomplish a goal.
+			eg- switch -On /OFF lights.
+			
+	3 approches to adding and API:
+		- Bolt-On strategy: for existing systems. brute force approach.
+			Drawbacks:
+			previous architecture faults will be carried out.
+		- Greenfield startegy: For new systems
+			Benifits:
+			Generally API first or mobile first mindset.
+			take advantage of technologies not known before.
+			Drawbacks:
+			Often requires massive upfront investment before any benifits appear.
+		- Facade Strategy: For replacing ssytem peice by peice
+			Benifits:
+			Ideal for legacy systems as application is always functional .
+			Drawbacks:
+			Can be challenging to have "multiple mindsets" in the system
+			Can be hard to replicate behaviour for a full 1:1 conversion.
+	Tips for modeling APIs:
+		Don't worry about the tools.
+		Have a consistent process.
+		It doesn't count unless its written down- document everything.
+	the modelling Process.
+		-Identifying Participants: human/ bot / entity. who are our participants ? what do we need to know?
+			be careful about the system boundries.
+		-Identifying activities and brerking down into steps:
+			what are our steps? - should not be abstract at all.
+		-Indentifying participants and activities - don not guess---just documenat in every stage.
+			who are out participants?
+			what are the activities?
+			what are our steps?
+		-Creating and grouping API methods:
+			resources -- nouns.
+			mapping activities to verbs and actions.
+				get, put,del and post CURD operations.
+			Relationships types:
+				independent resources
+				dependent resources
+				Associative -- actors in film is an eg , same character -- different ppl enact if history about a aperson.
+		- Validating API:
+			cheaper and faster.
+			use a microfrsmework -- hapi.js etc..
+			write documentation.-- acts as if API already existed.
+				List end points - describe what they do ?
+				List the parameters - describe what they mean ?
+				List the response codes - describe when you get each response.
+				Show the response payload.
+				show the documentation to other team ..can include curl command as well.
+				eg: google doc or swagger..
+				GOAL -- documentation to get the feedback from others and this is not the last step of the project.
+	HTTP-- hw does your API work ?
+		core misunderstanding 
+			HTTP is a protocol.
+			XML is a markup language. -- XML standards can add structure.
+			JSON is a notation. -- JSON specifications can add context.
+			REST is none of the above ..XD
+		What is REST ?
+			Generally agreed-upon set of principles and constraints.
+			SOAP 
+			- a fixed process.
+			- Lots of docs up front.
+			- Detailed scenarios.
+			- Complex err handling.
+			REST
+			- Few requirments.
+			- Docs discovered as you go 
+			- Flexible, based on needs
+			- Flexible based on patterns.
+			 but above REST points brings ambiguty ...so we go back to HTTP.
+
+			curl -I https://api.github.com 
+			Response code
+			Content-Type -- payload
+			Media type -- structure of payload.
+		6 constraint for HTTP APIs
+			- Client-server architecture.
+			- stateless architecture.
+			- Cacheable. -- idempotent request.
+			- Layered System. b/w client and servers.--DNS lookups.
+			- Code on Demand.
+			- Uniform interfces.
+	Common Design challenges.
+		Authentication and Authorisation:
+			API Design pattrns -- AuthN and AuthZ.they are different
+			AuthN -- who you are.
+			AuthZ -- what you are allowed to do.
+			Authorization can depend on :
+				Who you are ?
+				your group membership
+				Subscription level
+				Context -- time of day , loaction, device.
+				Actions attempted (for MFA)
+			Patterns for AutheN and AuthZ:
+				API Keys. simplest.
+					it can be cached everywhere.and can be compromised when key get rotated.
+				Create your own AuthN/ AuthZ Protocol.
+					benifits -- none.
+					drawbacks -- untetsed , unproven, needs training, no supporting tools.
+				OAuth 2.0-- authentication protocol.
+					reliable and well established.
+					massive documentation , tools etc ..
+					complicated and not easy to implementation .
+		API Versioning:
+			- resource URL
+			- Accept header.
+			Using Accept header:-- proper
+				content negotioation.
+			Using the URL.-- easier.
+				clear and explicit.
+				nothing lost when forgets to include.
+			regardless of either you need to be consistent.
+		Content Types and Media Types:
+			payload data ?
+			Name/value Pairs are fine. -- complex data is harder to extrain.
+			Media types:
+				collection + JSON: designed to deal with groups or collections of resources.
+									Also used for read/write operations and query about things.
+				Hypertext Application language (HAL)-- hal+json:
+					seperates the payload into 2 parts - data and _links.
+					Can represent single items as a set of one.
+					simple and effective.
+					drawbacks:
+						Can be verbose.
+						Having metadata in _links seperate from data is odd -- easy to lose context and not explore as appropriate.
+				Ion Hypernedia type.
+					designed specifically for the key data.
+					Metadata is grouped and easier to process and apply.
+				Otehr Hypermedia type:
+					Siren,OData, Atom,Mason,UBER,JSONAPI,JSON-LD.
+
+		Hypermedia and Hypermedia approaches:
+			hyper media -- hyper+media.
+			API single entry point.
+
+		HTTP headers - content negotioation and caching.
+			a way of storing and retriving data so that future requests can retrive it faster without performing and operation(-calculation,n/w request etc..) again.
+				Etags are comman approach for caching .
+					client makes HEAD request and server returns the Etag if the data is unchanged.
+					if the data is changed, then server returns new ETag .
+					If ETag is changed , client makes the full request.
+		Documentation approaches.
+			don't use PDF.
+			no CMS ....like wordpress..etc..
+			Goals?
+				we need code snippet friendly.
+				need page history specifically user friendly.
+				need something that easy to update.
+				need to be searchable.-- google needs to be able to crawl it as well.
+			Tools:
+				Wikis - Mediawiki,confluence,etc
+					Drawback - no stagins sapcec or no workflow.
+				Jekyll ?
+				Slate?- based on Jekyll and easy to deploy.
+		SDK design considerations:
+			if complex then only u want SDK
+				S - Succinct.- prescie.
+				P - Purposeful.
+				O - Open source.- pass back extensions...
+				I - Idiomatic.- SDKs should use the patters and conventions of any language they are designed for.
+				L - Logical. - consistent so lesson learned patterns ...
+			Chose language wisely.
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	 

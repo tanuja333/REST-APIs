@@ -10,3 +10,5 @@ Content-Type: application/json
 }
 
 #head http://restful.dev/wp-json/wp/v2/posts
+
+post https://api.github.com
