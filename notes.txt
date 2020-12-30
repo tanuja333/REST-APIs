@@ -353,15 +353,56 @@ DESIGNING RESTFUL APIs
 				I - Idiomatic.- SDKs should use the patters and conventions of any language they are designed for.
 				L - Logical. - consistent so lesson learned patterns ...
 			Chose language wisely.
-			
+======================================================================================================================================
+API TESTING AND VALIDATION
+	Guzzle,behat.
+	Understand Behavior Testing with Gherkin.
+		API testing is brokern - click around 
+			unit tsting doesn't work
+	    Goals of testing:
+			Prove that it works now.
+			Give us confidenc later.
+		SMART - Specific,measurable,achivable,relevent, and timeboxed.
+		INVEST - Independendt, negotiable,valuable,estimable,small adn testable.
+		BDD. - working software 
+		Gherkin Syntex:
+			Given
+			When
+			Then
+			And
+		hands-on:
+			php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+			php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+			php -r "unlink('composer-setup.php');"
+			export no_proxy=.github.com,.getcomposer.org
+			php composer.phar require behat/behat 3.*
+			vendor/bin/behat -V
 
+			vendor/bin/behat --init
+			vendor/bin/behat - linux
+			vendor\bin\phpunit - windows
+			php composer.phar require guzzlehttp/guzzle 6.*
+			composer config -g -- disable-tls true
+			    i.e., C:\MAMP\conf\php\php7.2.10\php.ini) -- uncomment  -->  ;extension=php_openssl
+			err while trying to access json -- 2nd scenario --> https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate
+			vendor\bin\behat --append-snippets --> https://stackoverflow.com/questions/30770257/behat-mink-error-snippets-for-the-following-steps-not-generated
+    Handling Authentication in API testing:
+        3 main approaches:
+            usr/pass
+            API keys/tokens-- should not embed the API keys on ur...use authorisation header
+            OAuth 2.0: solid and reliable.Handles authentication outside the API exchange.
+                    Retrives an access token and a refresh token.
 
+        configuration - behat.yml. -> holds password and username
+    Advanced API Testing in Practice:
+        vendor\bin\behat features\repo-watch.feature --- to call out particular feature.
+        HTTP response code:
+            1xx,2xx,3xx,4xx,5xx
+        Use extensions: batch operations
+            creations of tables for entire batchs /watch repos in iterative mode
 
-
-
-
-
-
+            GERKHIN SYNTAX - CROSS LANGUAGE
+======================================================================================================================================
 
 
 
