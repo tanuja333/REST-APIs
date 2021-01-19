@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server" vcs="Git" />
   </component>
 </project>

@@ -403,15 +403,311 @@ API TESTING AND VALIDATION
 
             GERKHIN SYNTAX - CROSS LANGUAGE
 ======================================================================================================================================
+WEB SECURITY:OAUTH AND OPENID CONNECT
+    Introduction:
+        OIDC -> openID connect
+        requird tools - postman , postman interceptor,Token Introspection tool once we get JWET,
+        An OAuth Server.
+            https://oauth2.thephpleague.com/
+            https://developers.google.com/oauthplayground/
+            https://www.oauth.com/playground/
+        API access Management:
+            https://developer.okta.com/
+           php >7, node.js - 15v,jq tool- cli to manipulate json
+    What is OAuth 2.0????
+        OAuth - is not a password sharing mechanism / protocol , it is definitely not a login process.
+        AuthN and AuthZ difference.
+        OAuth 2.0 is an authorization framework , which means a lot of things are undefined on purpose.
+        OpenID connect is an OAuth 2.0 extension putting function and form to a user's profile information.
+        OpenID Connect is just a special case of Oauth 2.0 -> applied in facebook , linkedin and github etc..
+        OAuth Extensions -Make it work
+            JWT or JSON Web token
+                - JWTs, common, JWTs are encode not encrypted.
+                - Don't put the confidential information in JWTs
+                - JSON Web /encryption(JWE) can be used to encrypt
+                - includes iss(issuer),iat(issued at),sub (subject),aud (audience), and exp (expiration).
+            Token revocation
+                - RFC 7009 Token Revocation spec- Cancels a token via API.
+                - this must be implemented in practice -> technically optional but recommended to implement.
+            Token introspection
+                - RFC 7662 Token Introspection spec
+                - useful for opaque tokens
+                - Describes if the token is active or not
+                - Mandatory if you have token revocation
+                - Clients needs to talk to server to check on token status.
+            Dynamic client Registration
+                - RFC 7591 Dynamic Client Registration spec
+                - Defines a consistent API for creating OAuth clients
+                - Useful in self-service API developer portals
+                - Followed by RFC 7592 Dynamic client management
+            Authorization server metadata discovery
+        all the above stated spec are optional -> how do we know the capabilities we have available???
+            Authorization server metadata discovery
+                - RFC 8414 Authorization Server Metadata spec - OAuth discovery document
+                - used for checking available specs
+            OpenID Connect- OIDC
+                - if we look carefully we can see that OIDC is just an extension to OAuth
+                - Along with Access and refresh token from OAuth , OIDC adds another type of token -ID tokens which must be a JWTs and must have users profile information
+                - Along with Authorize and token endpoints from OAuth , OIDC adds another endpoint called the UserInfo Endpoint- to retrieve user info.
+                - OIDC - only supports the subset of OAuth grant types..- Authorization code
+                - OIDC is an extension for profiling.
+    Fundamental concepts
+        OAuth 2.0 Fundamentals:
+            Scopes are the permissions that a client can request -- access can be either granted or denied
+            An access token represents your current authorization
+            A refresh token represents your next authorization
+            Grant types or flows are how you retrieve tokens
+            4 Grant types:
+                - Authorization code flow - back-ens apps
+                - Implicit or authorization code with PKCE - mobile apps or SPAs --Java scripts
+                - Client credential -- service accounts or microservices
+                - Resource owner password -- for legacy apps
+        OAuth 2.0 endpoints:
+            The core specification RFC 6749 - 2 end points
+                /authorize - used for anything user facing
+                           - Gets the authorization grant and user consent
+                /token - used to retrieve token when no user is involved
+                       - The only endpoint used in resource owner password or client credential
+            All other endpoints are extension!!
+            Possible OAuth Endpoints:
+                /introspect - which allows you to analyze and decode a token
+                /revoke - allows you to invalidate and access a refreshed token
+                /userinfo - this publishes user profile data
+                /.well-known/oauth-authorization-server also known as OAuth Authorization server metadata document(metadata discovery documents)
+                    - it is fixed and you are not allowed to create your own URL pattern
+                    - documents list all end points
+        OAuth 2.0 Scopes:- permissions for authorization
+            - scopes are undefined - they should be unique strings
+            - OpenID connect define few:
+                - profile
+                - email
+                - phone
+                - address
+            - Scope Naming Schemes or patterns:
+                - Simple strings Pattern - unique strings
+                - Java-style namespaces : eg .. company.resource.action ..
+                    when we use namespace we get expressive, Granular, predictable and lengthy scopes(for complex actions)
+                - URL-style pattern: eg.. API.company.com/resource.action
+                    this style has expressive, granular,Predictable --> google follow the URL pattern
+            Scope Naming guidelines:
+                - Be consistent
+            NO "ADMIN" SCOPES - because it looks vague
+    OAuth 2.0 tokens
+        OAuth specific structure and content of an access tokens are not defined.
+        refresh token
+        Opaque Tokens - or Obfuscated token - just unique key - nothing to extract/decode or decrypt.
+                      - Opaque tokens are useful only in the authorization server.
+                      - Auth server uses it as database ID to retrieve additional relevant info.
+        JSON Web Token - JWTs - full authorization and profile data  - we can use claims in out application to makes decision/grant/deny actione etc..
+                       - We can use   different naming convention for the claims.
+        How do we establish patterns and trust?
+              - trust data getting from token
+              - normalised data should be the o/p
+        Validating JWTs:
+               - very important in OAuth.
+               - We can trust the token - upon validating it.
+               - validate establishes to trust
+               - steps to validate the tokens:- only for access and ID tokens
+                    - Retrieve your signing keys.keys document
+                    - Use periods to separate access token into header,payload and the signature.
+                    - 3 parts
+                    - header -decode form base 64
+                   - The decoded header - grab claim from here called KID - keyID- which should reference a key from your original document.
+                   - KID should reference a key from the original document - if they don't match , then reject the token and it is not for us.
+                   - use the referenced key to sign the payload and compare against the original signature.
+                   - if they don't match then the token has been tampered / or not for you so reject it immediately.
+                   - now we know the token is right and it is for us and untouched:
+                   - now, we need to look at 4 claims from the payload which is decoded.
+                        - ISS - the issuer - should match our authorization server - we need to know where it came from.
+                        - AUD - Audience claim - from payload should match authorization server. - who the token is destined for.
+                        - CID - client ID - should match the client ID of the application that originally requested the token
+                        - EXP - Expiration time - should be in the future only.
+                   - if the token fails any of the above checks then it is invalid - reject the token.
+                   - we can't have a partially-validated token.
+                   - once above checks are completed we can consider token as valid.
+                   - above steps can be used using any available libraries.
+        Using access and refresh tokens:
+            Access token - access to specific resources.
+            Refresh token - opaque tokens - only 1 place it can be used in endpoint of authorization server
+                protect refresh tokens
+        Parsing and using ID tokens:
+            OIDC - always JWTs - ID Tokens comes from openID connect - and not from OAuth itself.
+            - ID tokens - have structured and defined.
+            - profile scope
+            - Email scope
+            - Address scope
+            - Phone scope
+            OID specification
+                OIDC Connect - Authentication and profile creation
+        Handling tokens safely and securely : -- bcoz we are handling profiling information.
+            ID tokens - user profile data- is should be protected -GDPR, delete info needs to be deleted
+            Access token - Authorization data
+                         - Read-only , low risk data : Long expiration
+                         - Read-only , sensitive  data : short expiration
+                         - Read write , sensitive data : very short expiration
+            Refresh tokens - Retrieve a new access token- critical token
+                           - to get new access token - etc
+                           - secure by revoking refresh toekn ASAP
+            Always need to protect tokens.
+    Grant type - Authorization code :
+        OAuth 2.0 Authorization code flow
+            - user never sees credentials or Access / refresh tokens
+            - and authorization code flow requires a client secret and user being involved.
+        When should I use Authorization code flow
+             can be used only when user is involved and application has a back end component.
+             But for mobile apps and SPAs(single page APPS), we need something different.
+        PKCE Overview:
+            - single page app can't keep secret and same goes with mobile apps
+            - so we have RFC 7636 - Proof key for code Exchange also called as PKCE
+            - PKCE doesn't use the client secret , but has same flow as Authorization code flow.
+            - instead of having a code secret , it has code verifier -  kept on local system.
+            - code verifier - URL - of safe string with 43 characters
+            - Then it also generates - Code challenge -- base64 encoded SHA256 hash of that code verifier
+            - so when an authorization request is made , the application wll send code challenge and keep code verifier secret.
+            - so for PKCE we can utilize OpenID foundation - AppAuth libraries- https://appauth.io/
+        When should I use PKCE?
+            when should I use Auth code with PKCE ?
+                anytime you have applications that can't keep secrets:
+                    mobile applications
+                    Single-page web applications
+                    Publica clients
+                we can use PKCE with general Auth code
+            Drawback of PKCE :
+                no refresh tokens- can't store secrets, local code challenge
+                we can implement using APPAuth libraries
+        hands on how Auth code flow and Auth PKCE flow work.
+            referring to following website: https://www.oauth.com/ - playground to understand
+            Client Registration
+            client_id	EdjaW1NXLY-N4GiEsnGX8YF2
+            client_secret	XhMwjczT7tIsra-HJL3VfmozfUOiIohsRvwK28mWTc1DK6Yr
+            User Account
+            login	blue-tiger@example.com
+            password	Clean-Ape-78
 
-
-
-
-
-
-
-
-	 
-		
-		
-	
+            Auth code is valid only for 60 seconds - should be used withi this
+            https://jwt.io/
+        Security considerations
+            Secure OAuth coed and OAuth +PKCE
+            Always use SSL/TLS
+            validate your access tokens.
+            Protect the Auth Code- only used once
+            Don't worry about access token
+            Protect your redirect_uri -> need to whitelist
+            So overall Auth code is head to compromise
+    Grant type: Implicit/Hybrid:
+        Implicit flow:
+            for single page/mobile apps
+            this approach can be deprecated by Authorization code with PKCE
+            Benefits:
+                The application never sees the users credentials
+                Mobile or browser app uses the underlying session storage so SSS scenarios work as expected.
+            Drawbacks:
+                The access token is exposed to the end-user and therefore at risk.
+                This doesn't support refresh tokens
+                So may ppl use implicit flow as the front-end single sign-on interface to back-end application which is actually using authorization code flow
+                in practise it happens while they use to login into the page using facebook , google etc ..
+        When should I use the Implicit grant type?
+            bcoz deprecated
+            hard to secure
+            big problem is that the access tokens in URLs is risky , whcih can be sent to application via URL , or GET parameter.
+            CORS - cross origin resource sharing !!!
+            Only time you need to implement Implicit flow - Plan B is when you are developing on legacy code with inconsistent support, or OAuth provider doesn't support PKCE.
+            Else PKCE with OAuth is advised.
+        Build an Example:SPA
+            https://console.cloud.google.com/apis/api/youtube.googleapis.com
+            GoogleAuth.currentUser.get(); --to get current user
+            GoogleAuth.currentUser.get().reloadAuthResponse(); -- to check out response, token ...etc,.
+        Implicit flow security consideration
+            Implicit flow is inherently insecure
+            have to support it
+            Always use SSL/TLS
+            Must validate access token , before you use it.
+            protect your redirect_uri
+            Don't use GET at all
+                2 ways to mitigate :
+                    don't use authorization server which allows arbitrary redirects-> bcoz we get token in response
+                    Use CORS --- very important
+                    Use Auth code with PKCE
+    Grant type: Resource owner password flow
+        Overview:
+            worst option- insecure.
+            Drawbacks:
+                The application has the user's credentials
+                This doesn't support refresh tokens
+        When should I use Resource owner password flow?
+			almost never useit - last option...
+			Pragmatism - > implement OAuth and legacy system.
+			Resource owner password - connect OAuth and legacy.--old systetm
+		Security consideration :
+			Always use SSL/TLS
+			token revocation is useless 
+			so change passwords
+			Resource owner should not be final system design -> should be intermittent while combining legacy applications.
+	Grant type: Oauth:2.0 Client credential flow:
+		Overview:
+			it doesn't involve user.
+			client id and secret - application credentials.
+		When should we use it ?
+			Microservices / backend APIs -- whne we don't use user info 
+			Benifits of OAuth:
+				Simplify with consistent interface.
+				Credential rotation,scopes and better tools.
+				less mistakes.
+				Less components and implementation overall
+				The client secret is a password - so we cannot use this in mobile app or other application running outside.
+		Security considerations:
+			use ssl/tls.
+			validate access token
+			Log and track usage in other ways 
+			secure grant type ----yes
+	Grant type :Device grant type
+		Overview:
+			new one.
+			RFC 2689.
+			OAuth 2.0 framework
+			addressing Iot devices....
+		When should we use it ?
+			never used for mobile devvice /IOT 
+			4 requirments:
+				device must be connected to internet.
+				device can make HTTPs requests.
+				device can communicate a URI to the end user to authorise and authenticate.
+				the user has a device available to visit the URI.
+		Security considerations:
+			use TLS/SSL.
+			validate access token -- cant do on device --- delegate to api gateway.
+			USER CODE -- can be compromised if its small, 
+				mitigate -with URL Parameters.--pass with url parameter as usercode --so user will not be able to type a thing.
+				we cn implemwnt rate limiting - authorisation server.
+				don't trust devices.
+	Using an OAuth Architecture:
+		OAuth recommended practices:
+			use SSL/TLS.
+			Resource server should validate every token it receives and maintain expiration time.
+			how to validate access token ?
+			often validate and authorisation server check.
+			API gateway - recommended. azure ,aws,kong,apigee,mulesofy...
+			OAuth authorisatoin server: OKTA...
+			Client application - hardest thing to secure.---choose right grant type 
+			OAUTH with PKCE.
+			secure the tokens - hide from end user.
+		Configuring an OAut server in PHP:
+			cmds from readme
+		Configuring an OAUTH server in Nodejs.
+			cmds from readme
+		OKTA -OAuth as a service product.
+	OAuth extensions in industries
+		Do u support OAuth2.0?
+		with grant and spec according to usecase.
+	HEART implementatation - health records
+	Open banking - APIs.
+		phase 1 : read only APIs.
+		phase 2: read and write 
+		All financial institution.
+			controlling - authorisation.
+	Next steps :
+	oauth.com
+	OAuth2.0 simplified by Aaron
+	Don't build authentication server yourselves.
+	check out OAuth maps.
+	understnad the requirements.

@@ -2,11 +2,77 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f9a9f94-92bc-4846-8de1-ebb552ff8a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Ex_Files_API_Testing_Validation/Exercise Files/01_03/End/api-validation/behat.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ex_Files_API_Testing_Validation/Exercise Files/01_03/End/api-validation/features/my-repos.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ex_Files_API_Testing_Validation/Exercise Files/01_03/End/api-validation/features/repo-create.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ex_Files_API_Testing_Validation/Exercise Files/01_03/End/api-validation/features/repo-watch-many.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ex_Files_API_Testing_Validation/Exercise Files/01_03/End/api-validation/features/repo-watch.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/public/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/public/auth_code.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/public/client_credentials.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/public/implicit.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/public/middleware_use.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/public/password.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/public/refresh_token.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Entities/AccessTokenEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Entities/AuthCodeEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Entities/ClientEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Entities/RefreshTokenEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Entities/ScopeEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Entities/UserEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Repositories/AccessTokenRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Repositories/AuthCodeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Repositories/ClientRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Repositories/RefreshTokenRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Repositories/ScopeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/examples/src/Repositories/UserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/06_03/start/oauth2-server/phpunit.xml.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/public/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/public/auth_code.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/public/client_credentials.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/public/implicit.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/public/middleware_use.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/public/password.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/public/refresh_token.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Entities/AccessTokenEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Entities/AuthCodeEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Entities/ClientEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Entities/RefreshTokenEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Entities/ScopeEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Entities/UserEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Repositories/AccessTokenRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Repositories/AuthCodeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Repositories/ClientRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Repositories/RefreshTokenRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Repositories/ScopeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/examples/src/Repositories/UserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/07_03/start/oauth2-server/phpunit.xml.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/public/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/public/auth_code.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/public/client_credentials.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/public/implicit.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/public/middleware_use.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/public/password.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/public/refresh_token.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Entities/AccessTokenEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Entities/AuthCodeEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Entities/ClientEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Entities/RefreshTokenEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Entities/ScopeEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Entities/UserEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Repositories/AccessTokenRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Repositories/AuthCodeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Repositories/ClientRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Repositories/RefreshTokenRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Repositories/ScopeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/examples/src/Repositories/UserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex_Files_Web_Security_OAuth_OpenID_Connect/Exercise Files/09_02/start/oauth2-server/phpunit.xml.dist" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +87,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lc6MJN3eO33QAVJ29EljGkE2bg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,7 +128,12 @@
       <workItem from="1607951800770" duration="2078000" />
       <workItem from="1607954521119" duration="20115000" />
       <workItem from="1608546004623" duration="8318000" />
-      <workItem from="1609317820733" duration="8476000" />
+      <workItem from="1609317820733" duration="25908000" />
+      <workItem from="1609598999957" duration="13717000" />
+      <workItem from="1609916170103" duration="14735000" />
+      <workItem from="1610519867733" duration="747000" />
+      <workItem from="1610522162278" duration="2651000" />
+      <workItem from="1610527725093" duration="830000" />
     </task>
     <servers />
   </component>
